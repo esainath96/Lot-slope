@@ -24,7 +24,7 @@ Instead of dealing with complex GIS software or expensive topography reports, Lo
 
 - 📍 **Instant Geocoding**: Type any address, and it instantly converts it to coordinates using the Nominatim free public service.
 - 🗺️ **Interactive Map**: Drag, drop, and click anywhere on the Leaflet map to analyze custom locations instantly via reverse-geocoding.
-- ⛰️ **Elevation Sampling**: Automatically generates a bounding box (approximate lot size) and samples the elevation at all four corners using OpenTopoData (Mapzen dataset).
+- ⛰️ **Elevation Sampling**: Automatically generates a bounding box (approximate lot size) and samples the elevation at all four corners using the Open-Elevation API.
 - 🎛️ **Customizable Thresholds**: Adjust what you consider "flat" or "steep" (in feet) using the intuitive UI, and the results update dynamically.
 - 🎨 **Playful UI**: Features a bright, Duolingo-inspired chunky design with satisfying interactive elements and responsive mobile layouts.
 
@@ -34,7 +34,7 @@ Because LotSlope has no backend, everything happens directly in the browser:
 
 1. **Forward Geocoding**: When you search an address, we call the `nominatim.openstreetmap.org/search` API to get the center `[lat, lng]`.
 2. **Bounding Box**: We mathematically generate a bounding box around the center coordinate to approximate the lot corners (NW, NE, SW, SE).
-3. **Elevation Query**: We batch query the 4 corner coordinates against `api.opentopodata.org/v1/mapzen`.
+3. **Elevation Query**: We batch query the 4 corner coordinates against `api.open-elevation.com/api/v1/lookup`.
 4. **Analysis**: We convert the resulting meters to feet, calculate the maximum elevation delta (highest point minus lowest point), and run it against the user's defined thresholds to output a verdict.
 
 ## 🚀 Getting Started (Local Development)
@@ -86,7 +86,7 @@ Contributions are what make the open source community such an amazing place to l
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-*Please note: The public Nominatim and OpenTopoData APIs have rate limits. If you are adding features that make heavy API calls, please ensure you respect their fair usage policies by debouncing and batching requests.*
+*Please note: The public Nominatim and Open-Elevation APIs have rate limits. If you are adding features that make heavy API calls, please ensure you respect their fair usage policies by debouncing and batching requests.*
 
 ## 📄 License
 
