@@ -116,7 +116,7 @@ export async function fetchElevations(coords: Coordinate[]): Promise<number[]> {
 
   // Fetch uncached
   const locations = uncachedCoords.map(uc => `${uc.coord.lat},${uc.coord.lng}`).join('|');
-  const url = `/api/opentopodata/v1/mapzen?locations=${locations}`;
+  const url = `https://api.opentopodata.org/v1/mapzen?locations=${locations}`;
 
   const response = await fetch(url);
   if (!response.ok) {
