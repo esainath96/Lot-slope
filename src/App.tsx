@@ -49,7 +49,7 @@ function App() {
     <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
       
       <header style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem', justifyContent: 'center' }}>
-        <img src="/logo.jpg" alt="LotSlope Logo" style={{ width: '48px', height: '48px', borderRadius: '12px' }} />
+        <img src={`${import.meta.env.BASE_URL}logo.jpg`} alt="LotSlope Logo" style={{ width: '48px', height: '48px', borderRadius: '12px' }} />
         <div>
           <h1 style={{ fontSize: '2.5rem', margin: 0, color: 'var(--accent-color)' }}>LotSlope</h1>
           <p style={{ color: 'var(--text-muted)', margin: 0, fontWeight: 'bold' }}>Terrain Analyzer</p>
